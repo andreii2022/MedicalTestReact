@@ -1,0 +1,39 @@
+.recipe-details {
+    margin: 0 auto;
+    max-width: 600px;
+    padding: 20px;
+  }
+  
+  .recipe-title {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  .recipe-content {
+    margin-bottom: 20px;
+  }
+  
+  .recipe-ingredients {
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .recipe-instructions {
+    margin-bottom: 10px;
+  }
+  
+  .recipe-back-link {
+    display: block;
+    text-align: center;
+    margin-bottom: 20px;
+    text-decoration: none;
+    color: #000;
+  }
+  
+  @media screen and (max-width: 600px) {
+    .recipe-details {
+      padding: 10px;
+    }
+  }
+  

@@ -1,0 +1,29 @@
+.beer-recipes-app {
+    margin: 0 auto;
+    max-width: 800px;
+    padding: 20px;
+  }
+  
+  .app-title {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  .footer {
+    text-align: center;
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid #ccc;
+  }
+  
+  .footer-text {
+    font-size: 14px;
+  }
+  
+  @media screen and (max-width: 600px) {
+    .beer-recipes-app {
+      padding: 10px;
+    }
+  }
+  
