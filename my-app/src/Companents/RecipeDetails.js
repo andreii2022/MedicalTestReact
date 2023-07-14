@@ -1,11 +1,12 @@
 // RecipeDetails.js
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
-import './StyleAll/RecipeDetails.css';
+import { useParams, useNavigate } from 'react-router-dom';
+import './StyleAll/RecipeDetails.css'
 
 const RecipeDetails = () => {
   const { id } = useParams();
   const [recipe, setRecipe] = useState(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchRecipe = async () => {
@@ -25,6 +26,10 @@ const RecipeDetails = () => {
     return <div>Recipe not found.</div>;
   }
 
+  const handleNavigateBack = () => {
+    navigate('/');
+  };
+
   return (
     <div>
       <h2>Recipe Details</h2>
@@ -32,9 +37,9 @@ const RecipeDetails = () => {
       <p>Name: {recipe.name}</p>
       <p>Description: {recipe.description}</p>
       {/* Отображение других деталей рецепта */}
+      <button onClick={handleNavigateBack}>Go Back</button>
     </div>
   );
 };
 
 export default RecipeDetails;
-

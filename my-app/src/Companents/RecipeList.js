@@ -1,35 +1,27 @@
+
+
+
 // import React from 'react';
-// import { useBeerStoreHook } from './useBeerStore';
+// import { Link } from 'react-router-dom';
 // import './StyleAll/RecipeList.css'
 
-// const RecipeList = () => {
-//   const { displayedRecipes, selectedRecipes, setSelectedRecipes } = useBeerStoreHook();
-
-//   const handleRecipeSelection = (recipeId) => {
-//     const isSelected = selectedRecipes.includes(recipeId);
-//     if (isSelected) {
-//       setSelectedRecipes(selectedRecipes.filter((id) => id !== recipeId));
-//     } else {
-//       setSelectedRecipes([...selectedRecipes, recipeId]);
-//     }
-//   };
-
+// const RecipeList = ({ recipes, selectedRecipes, onRecipeSelection }) => {
 //   return (
 //     <div className="recipes-list">
-//       {displayedRecipes.map((recipe) => (
-//         <div
-//           key={recipe.id}
-//           className={`recipe-card ${selectedRecipes.includes(recipe.id) ? 'selected' : ''}`}
-//           onClick={() => handleRecipeSelection(recipe.id)}
-//         >
-//           <h3 className="recipe-name">{recipe.name}</h3>
-//           <p className="recipe-description">{recipe.description}</p>
-//           {selectedRecipes.includes(recipe.id) && (
-//             <div className="recipe-overlay">
-//               <span className="overlay-text">Selected!</span>
-//             </div>
-//           )}
-//         </div>
+//       {recipes.map((recipe) => (
+//         <Link to={`/recipe/${recipe.id}`} key={recipe.id}>
+//           <div
+//             className={`recipe-card ${selectedRecipes.includes(recipe.id) ? 'selected' : ''}`}
+//             onClick={() => onRecipeSelection(recipe.id)}
+//             onContextMenu={(e) => {
+//               e.preventDefault();
+//               onRecipeSelection(recipe.id);
+//             }}
+//           >
+//             <h3 className="recipe-name">{recipe.name}</h3>
+//             <p className="recipe-description">{recipe.description}</p>
+//           </div>
+//         </Link>
 //       ))}
 //     </div>
 //   );
@@ -40,50 +32,43 @@
 
 
 
-// RecipeList.js
 import React from 'react';
-import { useBeerStoreHook } from './useBeerStore';
+import { Link } from 'react-router-dom';
 import './StyleAll/RecipeList.css';
 
-const RecipeList = () => {
-  const { displayedRecipes, selectedRecipes, setSelectedRecipes, removeSelectedRecipes } = useBeerStoreHook();
-
-  const handleRecipeSelection = (recipeId) => {
-    const isSelected = selectedRecipes.includes(recipeId);
-    if (isSelected) {
-      setSelectedRecipes(selectedRecipes.filter((id) => id !== recipeId));
-    } else {
-      setSelectedRecipes([...selectedRecipes, recipeId]);
-    }
-  };
-
-  const handleDeleteSelectedRecipes = () => {
-    removeSelectedRecipes();
+const RecipeList = ({ recipes, selectedRecipes, onRecipeSelection }) => {
+  const handleContextMenu = (e, recipeId) => {
+    e.preventDefault();
+    onRecipeSelection(recipeId);
   };
 
   return (
     <div className="recipes-list">
-      {displayedRecipes.map((recipe) => (
-        <div
-          key={recipe.id}
-          className={`recipe-card ${selectedRecipes.includes(recipe.id) ? 'selected' : ''}`}
-          onClick={() => handleRecipeSelection(recipe.id)}
-          onContextMenu={(e) => {
-            e.preventDefault();
-            handleRecipeSelection(recipe.id);
-          }}
-        >
-          <h3 className="recipe-name">{recipe.name}</h3>
-          <p className="recipe-description">{recipe.description}</p>
-        </div>
+      {recipes.map((recipe) => (
+        <Link to={`/recipe/${recipe.id}`} key={recipe.id}>
+          <div
+            className={`recipe-card ${selectedRecipes.includes(recipe.id) ? 'selected' : ''}`}
+            onClick={() => onRecipeSelection(recipe.id)}
+            onContextMenu={(e) => handleContextMenu(e, recipe.id)}
+          >
+            <h3 className="recipe-name">{recipe.name}</h3>
+            <p className="recipe-description">{recipe.description}</p>
+          </div>
+        </Link>
       ))}
-      {selectedRecipes.length > 0 && (
-        <button className="delete-button" onClick={handleDeleteSelectedRecipes}>
-          Delete Selected
-        </button>
-      )}
     </div>
   );
 };
 
 export default RecipeList;
+
+
+
+
+
+
+
+
+
+
+

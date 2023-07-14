@@ -1,39 +1,31 @@
+/* StyleAll/RecipeDetails.css */
+
 .recipe-details {
-    margin: 0 auto;
-    max-width: 600px;
-    padding: 20px;
-  }
-  
-  .recipe-title {
-    text-align: center;
-    font-size: 24px;
-    margin-bottom: 20px;
-  }
-  
-  .recipe-content {
-    margin-bottom: 20px;
-  }
-  
-  .recipe-ingredients {
-    font-weight: bold;
-    margin-bottom: 10px;
-  }
-  
-  .recipe-instructions {
-    margin-bottom: 10px;
-  }
-  
-  .recipe-back-link {
-    display: block;
-    text-align: center;
-    margin-bottom: 20px;
-    text-decoration: none;
-    color: #000;
-  }
-  
-  @media screen and (max-width: 600px) {
-    .recipe-details {
-      padding: 10px;
-    }
-  }
-  
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.recipe-details h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.recipe-details p {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.recipe-details button {
+  background-color: #ff5757;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.recipe-details button:hover {
+  background-color: #ff3636;
+}
