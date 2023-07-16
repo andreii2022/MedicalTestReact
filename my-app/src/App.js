@@ -1,47 +1,21 @@
-
-
-
-
-
-// // App.js
-// import React from 'react';
-// import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-// import BeerRecipesApp from './Companents/BeerRecipesApp';
-// import RecipeDetails from './Companents/RecipeDetails';
-
-// const App = () => {
-//   return (
-//     <Router>
-//       <Routes>
-//         <Route path="/" element={<BeerRecipesApp />} />
-//         <Route path="/recipe/:id" element={<RecipeDetails />} />
-//       </Routes>
-//     </Router>
-//   );
-// };
-
-// export default App;
-
-
-
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import BeerRecipesApp from './Companents/BeerRecipesApp';
-import RecipeDetails from './Companents/RecipeDetails';
-
-const App = () => {
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import './App.css';
+import Home from "./Pages/Home/Home";
+import RecipePage from "./Pages/RecipePage/Recipe";
+import HeaderNav from "./components/Header/HeaderNav";
+function App() {
   return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<BeerRecipesApp />} />
-        <Route path="/recipe/:id" element={<RecipeDetails />} />
-      </Routes>
-    </Router>
+    <div className="App">
+      <HeaderNav />
+      <Router>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/recipes/:id" element={<RecipePage />} />
+        </Routes>
+      </Router>
+    </div>
   );
-};
+}
 
 export default App;
-
-
-
-
