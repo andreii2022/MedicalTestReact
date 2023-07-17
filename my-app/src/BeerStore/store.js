@@ -19,6 +19,7 @@ const useRecipesStore = create((set) => ({
       recipes: state.recipes.concat(state.recipesAll.slice(0,5)),
       recipesAll: state.recipesAll.slice(5, state.recipesAll.length)
    })),
+
    removeSelectedRecipe: (id) => set((state) => ({
       selectedRecipes: state.selectedRecipes.filter((item) => item.id !== id)
    })),
@@ -31,6 +32,7 @@ const useRecipesStore = create((set) => ({
       recipesAll: state.recipesAll.slice(state.selectedRecipes.length, state.recipesAll.length),
       selectedRecipes: [],
    })),
+   
    fetchRecipes: async (resip) => {
       const { currentPage } = useRecipesStore.getState();
       const response = await fetch(`https://api.punkapi.com/v2/beers?page=${currentPage}`);

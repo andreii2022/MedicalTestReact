@@ -1,5 +1,5 @@
 import RecipesItem from "../RecipesItem/RecipesItem"
-import useRecipesStore from "../../store/store.js";
+import useRecipesStore from "../../BeerStore/store.js";
 import { useEffect } from "react";
 import React, { useState } from 'react';
 

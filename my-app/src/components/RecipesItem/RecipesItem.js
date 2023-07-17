@@ -1,7 +1,10 @@
 import React, { useState } from "react";
-import "./recipesItem.scss";
-import useRecipesStore from "../../store/store";
+import useRecipesStore from "../../BeerStore/store";
 import { useNavigate } from "react-router-dom";
+import "./recipesItem.scss";
+
+
+
 const RecipesItem = (props) => {
    const { name, description, image_url, ph, id } = props.item;
    const removeSelectedRecipe = useRecipesStore((state) => state.removeSelectedRecipe);

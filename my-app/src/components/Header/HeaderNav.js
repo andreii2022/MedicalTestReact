@@ -1,6 +1,8 @@
 import React from 'react';
-import useRecipesStore from "../../store/store.js";
+import useRecipesStore from "../../BeerStore/store.js";
 import "./headerNav.scss";
+
+
 const HeaderNav = () => {
     const selectedRecipes = useRecipesStore((state) => state.selectedRecipes);
     const removeSelectedRecipes = useRecipesStore((state) => state.removeSelectedRecipes);
