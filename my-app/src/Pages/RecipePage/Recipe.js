@@ -18,7 +18,7 @@ const RecipePage = () => {
    return (
       <div style={{textAlign: "center"}}>
          <h2>{recipe.name}</h2>
-         <img className="recipes-item__image " src={recipe.image_url} alt="recipe-img" />
+         <img className="recipes-item__image" src={recipe.image_url} alt="recipe-img" />
          <p>{recipe.description}</p>
       </div>
    );

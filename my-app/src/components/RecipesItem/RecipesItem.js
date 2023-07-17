@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import useRecipesStore from "../../BeerStore/store";
-import { useNavigate } from "react-router-dom";
+   import { useNavigate } from "react-router-dom";
 import "./recipesItem.scss";
 
 
